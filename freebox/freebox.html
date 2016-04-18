@@ -1,0 +1,65 @@
+<script type="text/javascript">
+    RED.nodes.registerType('freebox-server',{
+        category: 'config',
+        defaults: {
+            host: {value:"mafreebox.freebox.fr",required:true},
+            port: {value:80,required:true,validate:RED.validators.number()},
+        },
+        label: function() {
+            return this.host+":"+this.port;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="freebox-server">
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="icon-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+</script>
+
+
+<script type="text/x-red" data-help-name="freebox">
+    <p>Config node for freebox node  Freebox API.</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('freebox', {
+        category: 'function',
+        color: '#ffcc66',
+        defaults: {
+            name: {value: ""},
+			test: {value: ""},
+            server: {value:"", type:"freebox-server", required:true},
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "freebox-server.png",
+        label: function() {
+            return this.name || "freebox";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="freebox">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="name">
+    </div>
+	<div class="form-row">
+        <label for="node-input-server"><i class="icon-file"></i> Server</label>
+        <input  id="node-input-server" placeholder="server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-test"><i class="icon-file"></i> test</label>
+        <input type="text" id="node-input-test" placeholder="test">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="freebox">
+    <p>A node that call the Freebox API.</p>
+</script>

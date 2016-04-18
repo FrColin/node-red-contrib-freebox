@@ -1,0 +1,22 @@
+{
+  "name": "node-red-contrib-freebox",
+  "version": "0.0.3",
+  "description": "Nodes to Call French Freebox API",
+  "dependencies": {
+   "crypto": "latest",
+   "rest": "latest",
+   "when": "latest"
+  },
+  "keywords": [ "node-red", "freebox", "freeboxos", "api" ],
+  "node-red"     : {
+      "nodes": {
+		    "freebox": "freebox/freebox.js"
+      }
+  },
+  "author": "Frc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FrColin/node-red-contrib-freebox"
+  },
+  "license": "Apache-1.0"
+}
